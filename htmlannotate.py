@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 from sys import argv
 from lxml.html.diff import html_annotate
 
@@ -7,8 +7,8 @@ def help():
   print "       An annotation tool!"  
   print "----------------------------------"
   print
-  print "Usage: file_a:author1 file_b:author2 file_c:author3"
-  print "Output: HTML"
+  print "Usage: 
+  print "\thtmlannotate <file1>:<Author 1> <file2>:<Author 2> <file3>:<Author 3>"
   print
   print """Example output:
     <p><span title="author1">Here is</span>
@@ -27,7 +27,5 @@ if __name__ == "__main__":
     
   else:
     argpairs = [ arg.split(":") for arg in argv[1:] ]
-    
     params = [ ( open(filename).read(), label ) for filename, label in argpairs ]
-    
     print html_annotate(params)
